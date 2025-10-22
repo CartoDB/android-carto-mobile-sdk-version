@@ -1,4 +1,47 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'maven-publish'
+
+def getVersionName = { ->
+    return "5.0.0"  // Replace with version Name
+}
+
+def getArtifactId = { ->
+    return "carto-mobile-sdk" // Replace with library name ID
+}
+
+def githubProperties = new Properties()
+
+def githubPropertiesFile = rootProject.file('github.properties')
+   if (githubPropertiesFile.exists()) {
+       githubProperties.load(new FileInputStream(githubPropertiesFile))
+   }
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.carto'
+            artifactId getArtifactId()
+            version getVersionName()
+            artifact("$rootDir/carto_mobile_sdk/build/outputs/aar/carto_mobile_sdk-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            /** Configure path of your package repository on Github
+             *  Replace GITHUB_USERID with your/organisation Github userID and REPOSITORY with the repository name on GitHub
+             */
+            url = uri("https://maven.pkg.github.com/CartoDB/android-carto-mobile-sdk-version")
+
+            credentials {
+                /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+}
 
 buildscript {
     repositories {
