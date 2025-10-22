@@ -60,6 +60,14 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+
+         maven {
+            url = uri("https://maven.pkg.github.com/CartoDB/android-carto-mobile-sdk-version")
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
     }
 }
 
