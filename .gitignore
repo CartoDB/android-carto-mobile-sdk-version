@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+
+# Android
+*.apk
+*.aar
+*.dex
+*.class
+local.properties
+github.properties
+
+# IDE
+.idea/
+*.iml
+
+# Native
+.externalNativeBuild
+.cxx/
+
+# System
+.DS_Store
+
