@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.vanniktech.maven.publish'
 
 android {
     namespace 'com.carto'
@@ -44,4 +45,46 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+// Configure Maven publishing with vanniktech plugin
+mavenPublishing {
+    coordinates("com.carto", "carto-mobile-sdk", "5.0.0")
+
+    publishToMavenCentral("CENTRAL_PORTAL")
+    signAllPublications()
+
+    pom {
+        name = "Carto Mobile SDK"
+        description = "CARTO Mobile SDK is an advanced mobile mapping library for Android with support for vector tiles, offline maps, routing, and geocoding"
+        url = "https://github.com/CartoDB/android-carto-mobile-sdk-version"
+
+        licenses {
+            license {
+                name = "BSD 3-Clause License"
+                url = "https://github.com/CartoDB/android-carto-mobile-sdk-version/blob/master/LICENSE"
+            }
+        }
+
+        developers {
+            developer {
+                id = "cartodb"
+                name = "CARTO"
+                email = "support@carto.com"
+                organization = "CARTO"
+                organizationUrl = "https://carto.com"
+            }
+        }
+
+        scm {
+            url = "https://github.com/CartoDB/android-carto-mobile-sdk-version"
+            connection = "scm:git:git://github.com/CartoDB/android-carto-mobile-sdk-version.git"
+            developerConnection = "scm:git:ssh://github.com/CartoDB/android-carto-mobile-sdk-version.git"
+        }
+
+        issueManagement {
+            system = "GitHub Issues"
+            url = "https://github.com/CartoDB/android-carto-mobile-sdk-version/issues"
+        }
+    }
 }

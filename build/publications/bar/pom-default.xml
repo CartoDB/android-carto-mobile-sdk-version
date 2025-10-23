@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.carto</groupId>
+  <artifactId>carto-mobile-sdk</artifactId>
+  <version>5.0.0</version>
+  <packaging>aar</packaging>
+  <name>Carto Mobile SDK</name>
+  <description>CARTO Mobile SDK is an advanced mobile mapping library for Android with support for vector tiles, offline maps, routing, and geocoding</description>
+  <url>https://github.com/CartoDB/android-carto-mobile-sdk-version</url>
+  <licenses>
+    <license>
+      <name>BSD 3-Clause License</name>
+      <url>https://github.com/CartoDB/android-carto-mobile-sdk-version/blob/master/LICENSE</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>cartodb</id>
+      <name>CARTO</name>
+      <email>support@carto.com</email>
+      <organization>CARTO</organization>
+      <organizationUrl>https://carto.com</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/CartoDB/android-carto-mobile-sdk-version.git</connection>
+    <developerConnection>scm:git:ssh://github.com/CartoDB/android-carto-mobile-sdk-version.git</developerConnection>
+    <url>https://github.com/CartoDB/android-carto-mobile-sdk-version</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/CartoDB/android-carto-mobile-sdk-version/issues</url>
+  </issueManagement>
+</project>
